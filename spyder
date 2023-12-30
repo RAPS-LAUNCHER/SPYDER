@@ -1,0 +1,188 @@
+#!/bin/bash
+clear
+
+while getopts ":u:s:" opt; do
+      case $opt in
+           u) username=$OPTARG ;;
+           s) choice=$OPTARG ;;
+      esac
+done
+
+username=$2
+choice=$3
+
+echo
+echo -e "\e[34m                                  =**=              :***.                                 "
+echo "                                =@@@-                .#@@*.                               "
+echo "                              =%@@+                    :#@@+.                             "
+echo "               -            =@@@*.                       =@@@*.           ..              "
+echo "              .@:          %@@%-                          .*@@@:          #=              "
+echo "               %%         :@@@         -*%@@+ @@%#=:        *@@*         =@.              "
+echo "               -@*        +@@*      -#@@@@@@+ @@@@@@%+      -@@%        :@#               "
+echo "                %@-       #@@-     :#@@@@@@@+ @@@@@@@%+      @@@:      .@@:              "
+echo "                =@@.     .@@@.   .#*=:::=*%@+ @%#+-::-+#+    #@@+      #@#                "
+echo "                 @@#     =@@%    %@@@@@@#+: . . =*%@@@@@@:   =@@@     =@@-                "
+echo -e "                 =@@=    %@@+    +@@@@@@%-\e[31m.== *-.\e[34m*@@@@@@#:   :@@@:   .@@%                 "
+echo -e "                  %@@:   %@@*   :=.-#@*::\e[31m*@@+ @@%=\e[34m.=%@+.-+   :@@@-   %@@-                 "
+echo -e "                  =@@@=  .%@@*   @@*  .\e[31m#@@@@- #@@@@=\e[34m  -%@+  -@@@=  .#@@%                  "
+echo -e "                   =@@@#. .%@@#. =+.-*:.\e[31m+%=.. ::*%-.=+\e[34m.-*  +@@@-  +@@@*.                  "
+echo -e "                    .#@@@+  %@@%. .%@@@#  \e[31m=%+ @#: \e[34m-@@@@+  +@@@- -%@@@-                    "
+echo -e "                      -@@@%: #@@@  .*%=.\e[31m=@@@+ @@@#\e[34m::*%- :*@@@- *@@@+                      "
+echo -e "        .:=+=-::.       **::+:+@@@@*. \e[31m:%@@@@+ @@@@@*\e[34m  -%@@@#-+-.=#:       .:-=+=-.        "
+echo -e "           .-+%@@%#+-.    .-+*+:-*@@@*:.\e[31m+@@@+ @@@#-\e[34m.=%@@%=:=*+=:     :=*%@@@*=:           "
+echo -e "               .=*@@@@@#+--::..    -*%@%=.\e[31m=%+ @*:\e[34m.*@@#=.   ...::-=*%@@@@#+:               "
+echo "                   .=*%@@@@@@@@@@@@%+-::--  . . .-:::=*@@@@@@@@@@@@@#+:                   "
+echo "                       .=++***##%%@@@@@@#- .: - .+%@@@@@@%%##**++=:                       "
+echo -e "                           ..:-=+*#%%#=\e[.-*%@+ @@#=::+%%#*+=--:.                           "
+echo -e "                     +*#%%@@@@@@@@@*.\e[38;5;92m-#@@@@@+ @@@@@%+\e[34m -#@@@@@@@@@%#*+:                    "
+echo -e "                    +@@@%%#**+==-: \e[38;5;92m:#@@@#@@@+ @@@@%@@@+\e[34m .--=++*##%@@@%                    "
+echo -e "                   .@@@-         \e[38;5;92m:#@@@+.+@@@+ @@@#.-%@@@+\e[34m          @@@=                   "
+echo -e "                   #@@#        \e[38;5;92m*@@@*. *=.-*= #=.*- =%@@%=\e[34m          =@@@.                  "
+echo -e "                  -@@@:      \e[38;5;92m.*@@@*:  =@@@%+. -*@@@@.  =%@@%\e[34m        #@@#                  "
+echo -e "                  %@@+       \e[38;5;92m@@@%:    -*@@@@+ @@@@%+.    +@@@=\e[34m      .@@@-                 "
+echo -e "                 *@@%        \e[38;5;92m#@@+    .+=.-*@+ @#+::+-    .@@@:\e[34m       +@@@.                "
+echo -e "                 *@@%.       \e[38;5;92m+@@#     .%@#= . ..+@@+     -@@@\e[34m        *@@@:                "
+echo -e "                  +@@%.      \e[38;5;92m-@@@      .@%:     +@+      +@@*\e[34m       +@@#.                 "
+echo -e "                   -@@%      \e[38;5;92m.@@@:      .        :       %@@=\e[34m      =@@*                   "
+echo -e "                    :@@*      \e[38;5;92m%@@=                       @@@.\e[34m     -@@+\e[34m                    "
+echo -e "                     .%@=     \e[38;5;92m+@@#                      :@@%\e[34m     .@@-                     "
+echo -e "                       *@-    \e[38;5;92m-@@@.                     *@@*\e[34m     %%:                      "
+echo -e "                        +@:    \e[38;5;92m*@@@.                   +@@%:\e[34m    #%.                       "
+echo -e "                         -%     \e[38;5;92m.*@@:                 *@%-\e[34m     **                         "
+echo -e "                          .+      \e[38;5;92m.+%.               *#-\e[34m      --                          "
+echo -e "                            .       \e[38;5;92m.=.             =:\e[34m        .                           "
+echo -e "                                                                                          "
+echo
+echo -e "                                   \e[33mDEVELOPPED BY \e[32mTRABBIT\e[0m                                 "
+echo
+
+if [[ -z $username ]]; then
+      echo
+      echo "Usage: ./spyder -u <username> [-s] "
+      echo "────────────────────────────────────────────────"
+      echo " -u username      "
+      echo " -s scrape profile"
+      echo "────────────────────────────────────────────────"
+      echo "Exemple: "
+      echo "./spyder -u username"
+      echo "./spyder -u username -s"
+      echo "────────────────────────────────────────────────"
+      echo
+      exit 0
+fi
+
+
+echo "        ╭────────────────────────────╯"
+echo -e "【\e[31mＳＰＹＤＥＲ\e[0m】"
+echo
+
+echo "────────────────────────────────────────────────"
+if [[ $choice == "-s" ]]; then
+     # Check if the username is provided as an argument
+echo "────────────────────────────────────────────────"
+echo "                PROFILE SCRAPER                 "
+echo "────────────────────────────────────────────────"
+echo
+# Scrape the Facebook profile
+curl "https://www.facebook.com/$username" -o $username.html
+
+# Check if the profile was successfully scraped
+if [ $? -eq 0 ]; then
+    echo
+    echo -e "\e[32mProfile scraped successfully. Check the 'profile.html' file for the results.\e[0m"
+else
+    echo
+    echo -e "\e[31mFailed to scrape the profile.\e[0m"
+fi
+fi
+echo "────────────────────────────────────────────────"
+
+check_platform() {
+  platform=$1
+  username=$username
+  url="https://www"
+
+  case $platform in
+    "twitter") url="https://twitter.com/$username";;
+    "instagram") url="$url.instagram.com/$username";;
+    "facebook") url="https://m.facebook.com/$username";;
+    "github") url="https://github.com/$username";;
+    "linkedin") url="$url.linkedin.com/in/$username";;
+    "tiktok") url="$url.tiktok.com/@$username";;
+    "snapchat") url="$url.snapchat.com/add/$username";;
+    "reddit") url="$url.reddit.com/user/$username/";;
+    "youtube") url="https://m.youtube.com/@$username";;
+    *)
+      echo "[-] Unknown platform: $platform"
+      return;;
+  esac
+
+  response=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+
+  if [ "$response" -eq 200 ]; then
+    echo  -e "[\e[32m+\e[0m] Username '\e[32m$username\e[0m' ~> \e[32m$platform\e[0m [\e[32m√\e[0m]"
+  elif [ "$response" -eq 404 ] || [ "$response" -eq 301 ]; then
+    echo -e "[\e[31m-\e[0m] Username '\e[31m$username\e[0m' ~> \e[31m$platform\e[0m [\e[31mx\e[0m] $response"
+  else
+    echo -e "[\e[35m!\e[0m] Unable to determine validity on \e[35m$platform\e[0m [\e[35m!\e[0m]"
+  fi
+}
+
+# Add or remove platforms as needed
+check_platform "twitter"
+check_platform "instagram"
+check_platform "facebook"
+check_platform "github"
+check_platform "linkedin"
+check_platform "tiktok"
+check_platform "snapchat"
+check_platform "reddit"
+check_platform "youtube"
+
+echo "────────────────────────────────────────────────"
+
+read -p "DO YOU WANT TO TEST ON NSFW WEBSITE? (Y/N)=> " nsfw
+
+echo "────────────────────────────────────────────────"
+
+if [ "$nsfw" == "n" ]; then
+    shift
+elif [ "$nsfw" == "y" ]; then
+    check_nsfw_platform() {
+        platform_nsfw=$1
+        username=$username
+        url="https://www"
+
+        case $platform_nsfw in
+            "pornhub") url="https://pornhub.com/$username";;
+            "xnxx") url="https://xnxx.com/$username";;
+            "xvideos") url="https://xvideos.com/$username";;
+            *)
+                echo "[-] Unknown platform: $platform_nsfw"
+                return;;
+        esac
+
+        response=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+
+        if [ "$response" -eq 200 ]; then
+            echo -e "[\e[32m+\e[0m] Username '\e[32m$username\e[0m' ~> \e[32m$platform_nsfw\e[0m [\e[32m√\e[0m]"
+        elif [ "$response" -eq 404 ]; then
+            echo -e "[\e[31m-\e[0m] Username '\e[31m$username\e[0m' ~> \e[31m$platform_nsfw\e[0m [\e[31mx\e[0m]"
+        else
+            echo -e "[\e[35m!\e[0m] Unable to determine validity on \e[35m$platform_nsfw\e[0m ~>  $response [\e[35m!\e[0m]"
+        fi
+    }
+
+    # Add or remove platforms as needed
+    check_nsfw_platform "pornhub"
+    check_nsfw_platform "xnxx"
+    check_nsfw_platform "xvideos"
+
+else
+    echo "Invalid Option!"
+    exit 0
+fi
+
+echo "────────────────────────────────────────────────"
+echo "                     DONE                       "
+echo "────────────────────────────────────────────────"
